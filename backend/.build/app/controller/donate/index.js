@@ -10,8 +10,9 @@ class DonateController extends __1.ControllerAncestral {
     }
     async create(event) {
         const { body } = event;
+        const data = JSON.parse(body)[0];
         try {
-            const createdHelper = await this.donateService.create(body);
+            const createdHelper = await this.donateService.create(data);
             return this.rsCreated("Doação criada com sucesso", createdHelper);
         }
         catch (error) {
@@ -19,9 +20,10 @@ class DonateController extends __1.ControllerAncestral {
         }
     }
     async delete(event) {
-        const { body } = event;
+        const { pathParameters } = event;
+        const id = Number(pathParameters === null || pathParameters === void 0 ? void 0 : pathParameters.id);
         try {
-            await this.donateService.deleteUnique(body);
+            await this.donateService.deleteUnique(id);
             return this.rsNoContent("Helper deletado com sucesso");
         }
         catch (error) {
@@ -29,9 +31,10 @@ class DonateController extends __1.ControllerAncestral {
         }
     }
     async findUnique(event) {
-        const { body } = event;
+        const { pathParameters } = event;
+        const id = Number(pathParameters === null || pathParameters === void 0 ? void 0 : pathParameters.id);
         try {
-            const foundHelper = await this.donateService.findUnique(body.id);
+            const foundHelper = await this.donateService.findUnique(id);
             return this.rsCreated("Doação encontrada com sucesso", foundHelper);
         }
         catch (error) {
@@ -39,9 +42,14 @@ class DonateController extends __1.ControllerAncestral {
         }
     }
     async findMany(event) {
-        const { body } = event;
+        const { queryStringParameters } = event;
+        const data = {
+            help_request_id: queryStringParameters === null || queryStringParameters === void 0 ? void 0 : queryStringParameters.help_request_id,
+            user_id: queryStringParameters === null || queryStringParameters === void 0 ? void 0 : queryStringParameters.user_id,
+            amount: queryStringParameters === null || queryStringParameters === void 0 ? void 0 : queryStringParameters.amount,
+        };
         try {
-            const foundHelpers = await this.donateService.findUnique(body.id);
+            const foundHelpers = await this.donateService.findMany(data);
             return this.rsCreated("Doações", foundHelpers);
         }
         catch (error) {

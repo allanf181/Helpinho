@@ -82,3 +82,32 @@ functions:
       - http:
           path: helper
           method: GET
+
+  # DONATE
+  createDonate:
+    handler: app/functions/donate.createDonate
+    events:
+      - http:
+          path: donate
+          method: POST
+
+  deleteDonate:
+    handler: app/functions/donate.deleteDonate
+    events:
+      - http:
+          path: donate/{id}
+          method: delete
+
+  findUniqueDonate:
+    handler: app/functions/donate.findUniqueDonate
+    events:
+      - http:
+          path: donate/{id}
+          method: GET
+
+  findManyDonates:
+    handler: app/functions/donate.findManyDonates
+    events:
+      - http:
+          path: donate
+          method: GET
