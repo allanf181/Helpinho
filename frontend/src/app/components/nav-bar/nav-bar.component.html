@@ -1,0 +1,13 @@
+<div
+  class="flex justify-between items-center h-16 p-4 bg-pink-300 shadow-md box-border"
+>
+  <a [routerLink]="['home']" (click)="log('home')">LOGO</a>
+  <ul class="flex gap-2 items-center">
+    <li><a [routerLink]="['home']" (click)="log('home')">Home</a></li>
+    @if (loged) {
+    <li><a [routerLink]="['profile']" (click)="log('profile')">Profile</a></li>
+    }@else {
+    <li><a [routerLink]="['login']" (click)="log('login')">Login</a></li>
+    }
+  </ul>
+</div>
