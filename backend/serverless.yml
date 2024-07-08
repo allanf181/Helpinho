@@ -1,0 +1,113 @@
+service: helpinho-IgorAnjos
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+functions:
+  # USERS
+  createUser:
+    handler: app/functions/user.createUser
+    events:
+      - http:
+          path: user
+          method: POST
+
+  updateUser:
+    handler: app/functions/user.updateUser
+    events:
+      - http:
+          path: user/{id}
+          method: put
+
+  deleteUser:
+    handler: app/functions/user.deleteUser
+    events:
+      - http:
+          path: user/{id}
+          method: DELETE
+
+  findUniqueUser:
+    handler: app/functions/user.findUniqueUser
+    events:
+      - http:
+          path: user/{id}
+          method: GET
+
+  findManyUsers:
+    handler: app/functions/user.findManyUsers
+    events:
+      - http:
+          path: user
+          method: GET
+
+  # HELPERS
+  createHelper:
+    handler: app/functions/helper.createHelper
+    events:
+      - http:
+          path: helper
+          method: POST
+
+  updateHelper:
+    handler: app/functions/helper.updateHelper
+    events:
+      - http:
+          path: helper/{id}
+          method: put
+
+  deleteHelper:
+    handler: app/functions/helper.deleteHelper
+    events:
+      - http:
+          path: helper/{id}
+          method: DELETE
+
+  findUniqueHelper:
+    handler: app/functions/helper.findUniqueHelper
+    events:
+      - http:
+          path: helper/{id}
+          method: GET
+
+  findManyHelpers:
+    handler: app/functions/helper.findManyHelpers
+    events:
+      - http:
+          path: helper
+          method: GET
+
+  # DONATE
+  createDonate:
+    handler: app/functions/donate.createDonate
+    events:
+      - http:
+          path: donate
+          method: POST
+
+  deleteDonate:
+    handler: app/functions/donate.deleteDonate
+    events:
+      - http:
+          path: donate/{id}
+          method: delete
+
+  findUniqueDonate:
+    handler: app/functions/donate.findUniqueDonate
+    events:
+      - http:
+          path: donate/{id}
+          method: GET
+
+  findManyDonates:
+    handler: app/functions/donate.findManyDonates
+    events:
+      - http:
+          path: donate
+          method: GET

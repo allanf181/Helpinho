@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int           @id @default(autoincrement())
+  name        String
+  telephone   String
+  email       String
+  secret      String        
+  update_date_time DateTime @default(now())
+  HelpRequest HelpRequest[]
+  Donates     Donates[]
+}
+
+model HelpRequest {
+  id              Int       @id @default(autoincrement())
+  requester       Int    
+  title           String
+  description     String
+  image           Bytes
+  goal            Float
+  donate_quantity Int?       @default(0)
+  parcial_amount  Float?     @default(0)
+  update_date_time DateTime @default(now())
+  Requester       User      @relation(fields: [requester], references: [id])
+  Donates         Donates[]
+}
+
+model Donates {
+  id              Int         @id @default(autoincrement())
+  help_request_id Int 
+  user_id         Int 
+  amount          Float
+  update_date_time DateTime @default(now())
+  HelpRequestId HelpRequest @relation(fields: [help_request_id], references: [id])
+  UserId         User        @relation(fields: [user_id], references: [id])
+}
