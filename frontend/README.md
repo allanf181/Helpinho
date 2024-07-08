@@ -1,5 +1,7 @@
 Para execução do Frontend siga os passos:
 
+primeiro Adicione execute o backend
+
 No terminal de comando insira:
 `npm install -g @angular/cli`
 

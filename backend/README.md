@@ -1,5 +1,7 @@
 Para execução do Backend siga os passos:
 
+Execute primeiro o backend.
+
 No terminal de comando insira:
 `npm install`
 
