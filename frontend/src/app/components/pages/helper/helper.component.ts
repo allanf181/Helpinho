@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../nav-bar/nav-bar.component';
-import { Helper } from '../../../../types/helper.types';
+import { HelpRequest } from '../../../models/helper.model';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { helpers } from '../../../../integration/helper';
@@ -21,7 +21,7 @@ import {
 export class HelperComponent implements OnInit {
   helperForm: FormGroup;
   helperId: number | undefined;
-  helper: Helper | undefined;
+  helper: HelpRequest | undefined;
   percentGoal = 0;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder) {

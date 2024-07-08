@@ -1,7 +1,7 @@
 <div
   class="flex gap-8 flex-row justify-center items-center box-border w-screen flex-wrap"
 >
-  @for (helperItem of helperList; track $index) {
+  @for (helperItem of helperList$ | async; track $index) {
   <app-helper-card
     [helper]="helperItem"
     class="flex flex-col justify-between rounded-lg w-1/5 h-[35vw] shadow-md box-border"
