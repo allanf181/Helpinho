@@ -1,0 +1,39 @@
+create table '{
+  "TableDescription": {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "requestId","AttributeType": "N"
+      },{
+        "AttributeName": "owner","AttributeType": "N"
+      }
+    ],"TableName": "helpinho_requests",
+    "KeySchema": [
+      {
+        "AttributeName": "requestId","KeyType": "HASH"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "helpinho_requests_owner_index",
+        "KeySchema": [
+          {
+            "AttributeName": "owner","KeyType": "HASH"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+    },
+    "TableClassSummary": {
+      "TableClass": "STANDARD"
+    }
+  }
+}';
+

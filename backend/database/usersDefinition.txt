@@ -1,0 +1,41 @@
+create table '{
+  "TableDescription": {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "userId","AttributeType": "N"
+      },{
+        "AttributeName": "email","AttributeType": "S"
+      }
+    ],"TableName": "helpinho_users",
+    "KeySchema": [
+      {
+        "AttributeName": "userId","KeyType": "HASH"
+      },{
+        "AttributeName": "email","KeyType": "SORT"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "helpinho_users_email_index",
+        "KeySchema": [
+          {
+            "AttributeName": "email","KeyType": "HASH"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+    },
+    "TableClassSummary": {
+      "TableClass": "STANDARD"
+    }
+  }
+}';
+

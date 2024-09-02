@@ -1,0 +1,39 @@
+<nav class="w-dvw h-20 flex flex-col justify-center items-center">
+  <div class="max-w-screen-xl w-full flex flex-wrap items-center justify-between mx-auto p-4">
+    <a routerLink="/" class="flex items-center gap-3">
+      <img src="/assets/images/logo.svg" class="h-8" alt="Logo" />
+      <img src="/assets/images/helpinho.svg" class="h-8 hidden md:flex" alt="Helpinho">
+    </a>
+    <div *ngIf="!token" class="flex md:order-2 gap-3">
+      <button [routerLink]="['/register']" type="button" class="font-inter text-primary-500 justify-center px-3.5 py-2 gap-8 items-center border border-solid rounded-xl border-primary-100 bg-primary-100 text-sm font-semibold">Registre-se<span class="hidden md:contents"> grátis</span></button>
+      <button [routerLink]="['/login']" type="button" class="font-inter text-base-white justify-center px-3.5 py-2 gap-8 items-center border border-solid rounded-xl border-primary-500 bg-primary-500 text-sm font-semibold">Login</button>
+    </div>
+    <div *ngIf="token" class="flex md:order-2 gap-3">
+      <div class="flex items-center gap-2.5">
+        <img src="/assets/images/avatar.png" class="h-8 w-8 flex flex-col justify-center items-center rounded-[200px]" alt="Avatar">
+        <div class="md:flex flex-col items-start hidden">
+          <span class="text-neutral-700 font-inter text-sm font-semibold">{{token.name}}</span>
+          <span class="text-neutral-600 font-inter text-xs/[18px] font-normal">{{token.email}}</span>
+        </div>
+        <button (click)="logout()" type="button" class="justify-center p-2 gap-2 items-center border border-solid rounded-xl border-primary-500 bg-primary-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9M16 17L21 12M21 12L16 7M21 12H9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="showLinks" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+      <ul class="flex font-medium p-0 space-x-8 flex-row mt-0">
+        <li>
+          <a href="#" class="text-base font-normal block p-0 text-primary-500 border-b-2" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#" class="text-base font-normal block p-0 text-neutral-400">Pesquisa</a>
+        </li>
+        <li>
+          <a href="#" class="text-base font-normal block p-0 text-neutral-400">Sobre</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,55 @@
+-- auto-generated definition
+create table '{
+  "TableDescription": {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "donationId","AttributeType": "N"
+      },{
+        "AttributeName": "donatorId","AttributeType": "N"
+      },{
+        "AttributeName": "requestId","AttributeType": "N"
+      }
+    ],"TableName": "helpinho_donations",
+    "KeySchema": [
+      {
+        "AttributeName": "donationId","KeyType": "HASH"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "helpinho_donations_donatorId_index",
+        "KeySchema": [
+          {
+            "AttributeName": "donatorId","KeyType": "HASH"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+        }
+      },{
+        "IndexName": "helpinho_donations_requestId_index",
+        "KeySchema": [
+          {
+            "AttributeName": "requestId","KeyType": "HASH"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+    },
+    "TableClassSummary": {
+      "TableClass": "STANDARD"
+    }
+  }
+}';
+

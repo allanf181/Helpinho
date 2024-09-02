@@ -1,0 +1,136 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: allanf181
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: helpinho
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: helpinho
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+plugins:
+  - serverless-offline
+  - serverless-s3-local
+
+custom:
+  s3:
+    host: localhost
+    directory: ./s3-data
+
+resources:
+  Resources:
+    NewResource:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: local-bucket
+
+functions:
+  hello:
+    handler: functions/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  create-user:
+    handler: functions/user/create-user.createUser
+    events:
+      - httpApi:
+          path: /users
+          method: post
+  login:
+    handler: functions/user/login.login
+    events:
+      - httpApi:
+          path: /users/login
+          method: post
+  get-user:
+    handler: functions/user/get-user.getUser
+    events:
+      - httpApi:
+          path: /users/{userId}
+          method: get
+  update-user:
+    handler: functions/user/update-user.updateUser
+    events:
+      - httpApi:
+          path: /users/{userId}
+          method: patch
+  delete-user:
+    handler: functions/user/delete-user.deleteUser
+    events:
+      - httpApi:
+          path: /users/{userId}
+          method: delete
+  create-request:
+    handler: functions/request/create-request.createRequest
+    events:
+      - httpApi:
+          path: /requests
+          method: post
+  get-request:
+    handler: functions/request/get-request.getRequest
+    events:
+      - httpApi:
+          path: /requests/{requestId}
+          method: get
+  get-requests:
+    handler: functions/request/get-requests.getRequests
+    events:
+      - httpApi:
+          path: /requests
+          method: get
+  get-requests-by-owner:
+    handler: functions/request/get-requests-by-owner.getRequestsByOwner
+    events:
+      - httpApi:
+          path: /users/{userId}/requests
+          method: get
+  update-request:
+    handler: functions/request/update-request.updateRequest
+    events:
+      - httpApi:
+          path: /requests/{requestId}
+          method: patch
+  delete-request:
+    handler: functions/request/delete-request.deleteRequest
+    events:
+      - httpApi:
+          path: /requests/{requestId}
+          method: delete
+  create-donation:
+    handler: functions/donations/create-donation.createDonation
+    events:
+      - httpApi:
+          path: /requests/{requestId}/donations
+          method: post
+  update-donation:
+    handler: functions/donations/update-donation.updateDonation
+    events:
+      - httpApi:
+          path: /requests/{requestId}/donations/{donationId}
+          method: patch
+  get-donation:
+    handler: functions/donations/get-donation.getDonation
+    events:
+      - httpApi:
+          path: /requests/{requestId}/donations/{donationId}
+          method: get
+  get-donations-by-request-id:
+    handler: functions/donations/get-donations-by-request-id.getDonationsByRequestId
+    events:
+      - httpApi:
+          path: /requests/{requestId}/donations
+          method: get
+  get-donations-by-donator-id:
+    handler: functions/donations/get-donations-by-donator-id.getDonationsByDonatorId
+    events:
+      - httpApi:
+          path: /users/{donatorId}/donations
+          method: get
+  delete-donation:
+    handler: functions/donations/delete-donation.deleteDonation
+    events:
+      - httpApi:
+          path: /requests/{requestId}/donations/{donationId}
+          method: delete

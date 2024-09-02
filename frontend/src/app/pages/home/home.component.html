@@ -1,0 +1,228 @@
+<div class="flex flex-col items-center bg-transparent overflow-x-hidden" >
+  <div class="flex pb-16 flex-col items-center gap-[54px] md:gap-[120px] self-stretch h-[720px] md:h-fit">
+    <app-nav-bar class="flex flex-col justify-center items-center" (user)="getUser($event)"></app-nav-bar>
+
+    <div class="absolute flex flex-col w-full items-center h-[850px] -z-10">
+      <div class="w-full h-[850px] flex-shrink bg-gradient-292 from-primary-400 from-neg-35% to-primary-50 to-80% "></div>
+      <div class="w-full h-[850px] absolute l-0 t-0 bg-[url('/assets/images/background.png')] mix-blend-overlay"></div>
+    </div>
+
+    <div *ngIf="!user" class="flex max-w-screen-xl w-full h-[585px] md:gap-[-100px] items-start shrink-0 md:flex-row flex-col gap-8">
+      <div class="flex flex-col items-start md:gap-4 w-full">
+        <div class="flex flex-inline">
+          <div class="flex items-start gap-6 md:gap-0.5 px-3.5 py-4 md:bg-base-white/40 border-solid border-transparent rounded-[20px] h-[66px] animate-infinite-scroll md:animate-none">
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 md:bg-transparent border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 md:text-neutral-600 text-[17px] leading-none font-normal">Registro grátis</span>
+          </div>
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 md:bg-transparent border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 md:text-neutral-600 text-[17px] leading-none font-normal">Sem taxas</span>
+          </div>
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 md:bg-transparent border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 md:text-neutral-600 text-[17px] leading-none font-normal">Rápido e prático</span>
+          </div>
+        </div>
+          <div class="flex items-start gap-6 px-3.5 py-4 h-[66px] animate-infinite-scroll md:hidden" aria-hidden="true">
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 text-[17px] leading-none font-normal">Registro grátis</span>
+          </div>
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 text-[17px] leading-none font-normal">Sem taxas</span>
+          </div>
+          <div class="flex px-3 py-2 items-center gap-1.5 bg-base-white/40 border-solid border-transparent rounded-xl text-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+              <circle cx="9.89197" cy="9" r="9" fill="#FF2E6B"/>
+              <path d="M5.89197 9L8.69197 12L13.892 6" stroke="#FFF0F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-primary-700 text-[17px] leading-none font-normal">Rápido e prático</span>
+          </div>
+        </div>
+        </div>
+        <div class="flex flex-col items-start gap-8 py-0 px-8 md:px-0 self-stretch">
+          <div class="flex flex-col items-start gap-6 self-stretch">
+            <div class="text-neutral-800 font-light text-[2rem] leading-normal md:text-5xl -tracking-[0.03em] md:w-[635px] w-full">
+              Faça a diferença com apenas <span class="text-primary-600 font-bold">um helpinho</span>
+            </div>
+            <div class="text-neutral-600 font-light text-base leading-normal md:text-2xl md:w-[520px] w-full">
+              Os helpinho podem parecer pequenos, mas juntos fazem a <span class="text-primary-600 font-bold">diferença na vida de todos</span>
+            </div>
+          </div>
+          <button routerLink="/register" type="button" class="text-base-white justify-center h-[44px] md:h-fit md:px-5 md:py-3 py-2.5 px-7 gap-2 items-center border border-solid rounded-[18px] border-primary-500 bg-primary-500 text-base font-semibold">Registre-se grátis</button>
+        </div>
+      </div>
+      <div class="relative md:w-[678px] md:h-[586px] w-[375px] h-[318px]">
+        <div class="absolute md:w-[678px] md:h-[586px] w-[375px] h-[318px] top-0 left-0">
+          <div class="absolute md:w-[444px] md:h-[565px] w-[239px] h-[214px] top-0 md:left-1.5 left-[11px]">
+            <div class="absolute md:w-[188px] md:h-52 md:top-[357px] w-[119px] h-[18px] top-[196px] left-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="188" height="209" viewBox="0 0 188 209" fill="none" class="hidden md:block">
+                <path d="M0.864662 151.778C21.3495 119.318 100.261 100.707 101.449 148.393C102.165 177.149 88.6915 201.557 66.2949 206.868C31.1417 215.203 38.1384 103.651 79.999 66.6919C121.86 29.7332 181.404 29.9216 187.064 0.259536" stroke="#FFF0F3" stroke-width="2" stroke-dasharray="7 7"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="19" viewBox="0 0 120 19" fill="none" class="block md:hidden">
+                <path d="M29.3981 1.40102C47.9426 11.0156 61.2026 53.373 35.1826 56.4079C19.4913 58.2381 5.62253 52.0674 1.84358 40.047C-4.08778 21.1801 57.1636 19.4421 79.0034 40.5577C100.843 61.6732 103.069 94.3461 119.505 95.9682" stroke="#FFF0F3" stroke-width="2" stroke-dasharray="7 7"/>
+              </svg>
+            </div>
+            <div class="absolute md:w-[301px] w-[165px] md:h-[530px] h-[214px] top-0 md:left-36 left-[74px] border-solid border-transparent rounded-[217px] bg-[url('/assets/images/home_img1.jpeg')] bg-cover bg-no-repeat bg-center" src="/assets/images/home_img1.jpeg"></div>
+          </div>
+          <div class="absolute md:w-[211px] md:h-[391px] md:top-[135px] md:left-[467px] w-[109px] h-[184px] top-[30px] left-[266px]">
+            <div class="absolute md:w-[193px] md:h-[391px] md:top-0 md:left-[18px] w-[106px] h-[140px] top-11 left-1 border-solid border-transparent rounded-[217px] bg-[url('/assets/images/home_img2.jpeg')] bg-cover bg-no-repeat bg-center"></div>
+            <div class="absolute md:w-[50px] md:h-[142px] md:top-[249px] left-0 w-[26px] h-[82px] top-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="52" height="143" viewBox="0 0 52 143" fill="none" class="hidden md:block">
+                <path d="M0.91761 141.206L8.99292 142.412L10.1996 134.337L2.12427 133.13L0.91761 141.206ZM6.15344 138.575C7.09558 137.878 8.0202 137.17 8.92753 136.452L7.68673 134.884C6.79623 135.588 5.88865 136.283 4.96375 136.967L6.15344 138.575ZM14.2351 131.966C15.9741 130.396 17.6408 128.786 19.2373 127.141L17.8018 125.748C16.2358 127.362 14.6009 128.941 12.8948 130.482L14.2351 131.966ZM23.9168 121.984C25.4302 120.2 26.8702 118.382 28.2391 116.533L26.6318 115.343C25.2888 117.156 23.8762 118.94 22.3917 120.69L23.9168 121.984ZM32.1902 110.815C33.4541 108.852 34.6454 106.861 35.7669 104.848L34.0196 103.875C32.9185 105.852 31.7491 107.805 30.5087 109.732L32.1902 110.815ZM38.9592 98.6702C39.9638 96.5696 40.8983 94.4497 41.7659 92.3155L39.9131 91.5623C39.0603 93.6604 38.1418 95.7436 37.1549 97.8073L38.9592 98.6702ZM44.1952 85.8023C44.9458 83.5986 45.6297 81.385 46.25 79.1666L44.3239 78.628C43.7133 80.8116 43.0403 82.9897 42.302 85.1575L44.1952 85.8023ZM47.9392 72.4331C48.446 70.1585 48.8896 67.8843 49.2735 65.6161L47.3016 65.2823C46.9233 67.5175 46.4862 69.7579 45.987 71.9982L47.9392 72.4331ZM50.2593 58.7502C50.5338 56.431 50.7484 54.1238 50.907 51.8348L48.9118 51.6966C48.7554 53.9539 48.5437 56.2288 48.2732 58.5151L50.2593 58.7502ZM51.2206 44.9074C51.2708 42.5639 51.2641 40.2466 51.2045 37.9623L49.2052 38.0144C49.2639 40.2675 49.2706 42.5531 49.2211 44.8645L51.2206 44.9074ZM50.8586 31.0413C50.6842 28.6872 50.4547 26.3783 50.175 24.1228L48.1902 24.3689C48.4658 26.5917 48.6921 28.8678 48.864 31.189L50.8586 31.0413ZM49.1434 17.2569C48.7278 14.9135 48.258 12.6443 47.7405 10.4602L45.7944 10.9213C46.3028 13.0674 46.765 15.2993 47.1741 17.6062L49.1434 17.2569ZM45.9221 3.74983C45.5729 2.61497 45.2104 1.5113 44.8358 0.44089L42.9481 1.10159C43.314 2.14714 43.6686 3.22659 44.0105 4.33798L45.9221 3.74983Z" fill="#387CE1" fill-opacity="0.63"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="83" viewBox="0 0 27 83" fill="none" class="block md:hidden">
+                <path d="M8.67253 0.686468L1.09239 3.69555L4.05151 11.3155L11.6316 8.30644L8.67253 0.686468ZM5.44929 5.60168C4.9732 6.69674 4.53499 7.79237 4.13323 8.88777L6.0027 9.57643C6.39087 8.51812 6.8144 7.45916 7.27474 6.40031L5.44929 5.60168ZM2.09767 15.6661C1.54712 18.0018 1.15054 20.3277 0.8937 22.636L2.87451 22.8517C3.12255 20.6226 3.50545 18.377 4.03692 16.1223L2.09767 15.6661ZM0.529175 29.6942C0.545549 32.0757 0.700396 34.4282 0.976913 36.7423L2.95587 36.4949C2.68793 34.2526 2.53817 31.9755 2.52234 29.6724L0.529175 29.6942ZM2.18331 43.6868C2.71023 46.0009 3.35015 48.2638 4.08432 50.4655L5.97414 49.8201C5.2598 47.6779 4.63789 45.4782 4.12621 43.2311L2.18331 43.6868ZM6.61474 57.0229C7.5725 59.2033 8.61423 61.3048 9.71819 63.3157L11.4635 62.3397C10.387 60.3787 9.37146 58.3299 8.43816 56.2052L6.61474 57.0229ZM13.3605 69.3132C14.708 71.3267 16.1053 73.214 17.5229 74.9587L19.0677 73.6845C17.6892 71.9879 16.3284 70.1502 15.0149 68.1874L13.3605 69.3132ZM22.2309 80.173C23.0964 81.0296 23.9585 81.8282 24.8105 82.5647L26.1123 81.04C25.296 80.3343 24.4667 79.5663 23.631 78.7392L22.2309 80.173Z" fill="#387CE1" fill-opacity="0.63"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="user" class="flex flex-col md:flex-row md:px-[168px] px-4 gap-12 md:gap-0 justify-between items-start self-stretch">
+      <div class="flex flex-col items-start gap-4">
+        <div class="md:w-[635px] flex flex-col items-start gap-6 font-sans self-stretch">
+          <span class="text-neutral-800 text-[40px] tracking-[-1.2px] font-light">Olá <span class="md:text-5xl font-bold md:tracking-[-1.44px]">{{user.name}}</span></span>
+          <span class="md:w-[521px] text-neutral-600 md:text-2xl/none text-base/none font-normal">Vamos dá um <span class="text-primary-600 font-bold">helpinho</span> hoje? Separamos uma seleção especial para você</span>
+        </div>
+        <div class="md:max-w-[300px] flex px-3.5 py-3 items-start md:gap-4 justify-between md:justify-normal self-stretch rounded-[20px] bg-base-white/40">
+          <div class="flex px-3 py-2 items-center gap-1.5">
+            <span class="text-neutral-600 md:text-[17px]/[25px] text-[14px]/[25px] font-normal md:tracking-[-0.34px] tracking-[-0.28px]">Acompanhando <span class="text-primary-500 md:text-2xl/[25px] text-xl/[25px] font-semibold md:tracking-[-0.48px] tracking-[-0.4px]">{{donatedCount ?? "??"}}</span> helpinhos</span>
+          </div>
+          <div class="flex px-3 py-2 items-center gap-1.5">
+            <span class="text-neutral-600 md:text-[17px]/[25px] text-[14px]/[25px] font-normal md:tracking-[-0.34px] tracking-[-0.28px]">Criou <span class="text-primary-500 md:text-2xl/[25px] text-xl/[25px] font-semibold md:tracking-[-0.48px] tracking-[-0.4px]">{{requestCount ?? "??"}}</span> helpinhos</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center self-stretch">
+        <div class="w-[206.07px] h-[250px] flex relative self-stretch">
+          <div class="opacity-80 w-[206.07px] h-[250px] left-0 top-0 absolute">
+            <img class="w-[250px] h-[250px] top-0 absolute" src="/assets/images/bg-info.png" />
+          </div>
+          <div class="h-[157px] top-[43px] absolute flex-col justify-start items-start gap-[49px] inline-flex">
+            <div class="flex-col justify-start items-center flex">
+              <div class="text-neutral-900 text-sm/[14px] font-light font-sans">Você já doou</div>
+              <div class="justify-center items-baseline gap-1 inline-flex">
+                <div class="text-primary-500 text-[17px]/[17px] font-normal font-sans">R$</div>
+                <div class="text-primary-600 text-[40px]/10 font-bold font-sans">{{ sumDonated ?? "??????" }}</div>
+              </div>
+            </div>
+            <div class="self-stretch flex-col justify-end items-center flex">
+              <div class="text-primary-600 text-[40px]/10 font-bold font-sans">{{ donatedCount ?? "??" }}</div>
+              <div class="text-neutral-900 text-sm/[14px] font-light font-sans">Helpinhos alegres </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex md:pt-32 md:pb-0 md:px-16 pt-12 pb-16 flex-col items-center md:gap-16 gap-12 self-stretch bg-base-white z-10">
+    <div class="flex items-start md:w-[1060px] md:flex-row flex-col">
+      <div class="flex flex-col items-center md:flex-[1_1_0]">
+        <div class="flex py-[25px] md:px-[25px] px-0 flex-col items-start self-stretch">
+          <div class="flex items-start gap-[20px]">
+            <h2 class="text-primary-500 font-montserrat font-bold text-[40px] leading-tight tracking-[0.2px]">1.</h2>
+            <div class="flex flex-col items-start gap-[5px]">
+              <h6 class="text-primary-950 font-inter text-sm/[16px] font-semibold tracking-[0.2px]">Escolha</h6>
+              <span class="w-[172px] text-neutral-400 font-inter font-normal text-sm/[16px] tracking-[0.2px]">Escolha um helpinho que deseja ajudar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center md:flex-[1_1_0]">
+        <div class="flex py-[25px] md:px-[25px] pl-4 flex-col items-start self-stretch">
+          <div class="flex items-start gap-[20px]">
+            <h2 class="text-primary-500 font-montserrat font-bold text-[40px] leading-tight tracking-[0.2px]">2.</h2>
+            <div class="flex flex-col items-start gap-[5px]">
+              <h6 class="text-primary-950 font-inter text-sm/[16px] font-semibold tracking-[0.2px]">Doa</h6>
+              <span class="w-[172px] text-neutral-400 font-inter font-normal text-sm/[16px] tracking-[0.2px]">O valor é você quem decide, e ele vai <span class="text-primary-500">todo</span> para quem escolher</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center md:flex-[1_1_0]">
+        <div class="flex py-[25px] md:px-[25px] pl-8 flex-col items-start self-stretch">
+          <div class="flex items-start gap-[20px]">
+            <h2 class="text-primary-500 font-montserrat font-bold text-[40px] leading-tight tracking-[0.2px]">3.</h2>
+            <div class="flex flex-col items-start gap-[5px]">
+              <h6 class="text-primary-950 font-inter text-sm/[16px] font-semibold tracking-[0.2px]">Aproveite</h6>
+              <span class="w-[172px] text-neutral-400 font-inter font-normal text-sm/[16px] tracking-[0.2px]">Doar gera felicidade para você e para quem recebeu.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center md:flex-[1_1_0]">
+        <div class="flex py-[25px] md:px-[25px] pl-12 flex-col items-start self-stretch">
+          <div class="flex items-start gap-[20px]">
+            <h2 class="text-primary-500 font-montserrat font-bold text-[40px] leading-tight tracking-[0.2px]">4.</h2>
+            <div class="flex flex-col items-start gap-[5px]">
+              <h6 class="text-primary-950 font-inter text-sm/[16px] font-semibold tracking-[0.2px]">Acompanhe</h6>
+              <span class="w-[172px] text-neutral-400 font-inter font-normal text-sm/[16px] tracking-[0.2px]">Fique ligado, acompanhe se o helpinho alcançou o objetivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex px-4 w-full md:h-16 md:justify-center justify-normal flex-col md:flex-row md:items-start items-center gap-4 self-stretch">
+      <div class="relative w-full flex flex-col items-start self-stretch">
+        <div class="absolute inset-y-0 start-4 flex items-center pe-3.5 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#6D6D6D" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <input type="text"
+               class="flex md:h-full h-14 px-3.5 py-2.5 items-center ps-10 gap-2 self-stretch border-neutral-300 border border-solid rounded-lg focus:outline-none focus:ring-primary-300 focus:ring-1 focus:border-primary-500 invalid:border-error-300 focus:invalid:border-error-500 focus:invalid:ring-error-300"
+               placeholder="Quem vamos ajudar hoje?"
+        />
+      </div>
+      <select class="md:w-[320px] flex md:h-full h-14 px-3.5 py-2.5 items-center gap-2 self-stretch border-neutral-300 border border-solid rounded-lg focus:outline-none focus:ring-primary-300 focus:ring-1 focus:border-primary-500 invalid:border-error-300 focus:invalid:border-error-500 focus:invalid:ring-error-300 bg-base-white text-neutral-500">
+        <option selected>Escolha uma categoria</option>
+        <option value="games">Jogos</option>
+        <option value="life">Saúde</option>
+        <option value="music">Música</option>
+        <option value="reform">Reforma</option>
+        <option value="emergency">Emergência</option>
+        <option value="hospital">Hospitalar</option>
+      </select>
+    </div>
+    <div class="flex pb-[96px] flex-col items-center self-stretch">
+      <div class="flex max-w-[1280px] py-0 px-8 items-start gap-16">
+        <div *ngIf="requests !== undefined" class="flex items-start content-start gap-8 self-stretch flex-wrap">
+          <ng-container *ngFor="let request of requests; trackBy: trackByFn">
+            <a href="/request/{{request.requestId}}">
+              <app-request-card [request]="request" class="w-full md:w-[384px]"></app-request-card>
+            </a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="md:w-[1440px] md:h-[193px] pt-16 pb-4 bg-white flex-col justify-start items-center gap-16 inline-flex">
+    <div class="self-stretch h-[113px] px-8 flex-col justify-start items-start gap-8 flex">
+      <div class="self-stretch justify-between md:items-center items-start md:inline-flex flex flex-col md:flex-row gap-6 md:gap-0">
+        <div class="flex items-center gap-3">
+          <img src="/assets/images/logo.svg" class="h-8" alt="Logo" />
+          <img src="/assets/images/helpinho.svg" class="h-8" alt="Helpinho">
+        </div>
+        <div class="text-neutral-500 text-sm font-normal font-inter leading-normal">© 2077 Helpinho. Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </div>
+</div>

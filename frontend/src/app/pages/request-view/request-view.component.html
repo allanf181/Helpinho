@@ -1,0 +1,9 @@
+<div class="flex flex-col h-dvh">
+  <app-nav-bar></app-nav-bar>
+  <div *ngIf="request !== null" class="flex flex-col px-12 py-6 items-center gap-2.5 flex-[1_0_0] self-stretch">
+    <app-request-card [request]="request" class="w-full md:w-[384px]"></app-request-card>
+    <span class="text-neutral-600 text-sm font-normal font-inter leading-normal">
+      Recebido {{sumDonated.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}} até o momento
+    </span>
+  </div>
+</div>
